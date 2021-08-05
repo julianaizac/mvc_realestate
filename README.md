@@ -1,4 +1,4 @@
-<h1>MVC Imobiliária</h2>
+<h1 align="center">MVC Imobiliária</h2>
 
 ## ✨ Tecnologias utilizadas
 
@@ -11,4 +11,4 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 
 ---
 
-<p align="center">made by <strong>Juliana Izac</strong> 🌼<p>
+<p align="center"><strong>Juliana Izac</strong> 🌼<p>
