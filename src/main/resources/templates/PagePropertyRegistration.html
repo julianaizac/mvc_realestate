@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns="www.w3.org/1999/xhtml" 
+      xmlns:th="http://www.thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	  layout:decorate="~{StandardLayout}">
+      
+<section layout:fragment="content">
+    <div class="card">
+        <div class="card-header">
+            <h2>Cadastro de Imóveis</h2>
+            <a class="btn btn-link" href="/properties">Voltar para a pesquisa de Imóveis</a>
+        </div>
+        <div class="card-body">
+            <form method="POST" action="/properties" th:object="${property}">
+                <input type="hidden" th:field="*{id}">
+                <!-- ADDRESS-->
+                <div class="form-group">
+                    <label for="name" class="control-label">Endereço</label>
+                    <input type="text" class="form-control" id="address" th:field="*{address}" placeholder="Nome do Endereço">
+                </div>
+                <!-- STATE -->
+                <div class="form-group">
+                    <label>Estado</label>
+                    <select class="form-control" th:field="*{neighborhood.county.state}" id="state">
+					    <option th:each="state : ${allStates}" th:value="${state.id}" th:text="${state.name}"></option>
+                    </select>
+                </div>
+                <!-- COUNTY -->
+                <div class="form-group">
+                    <label>Município</label>
+                    <select class="form-control" th:field="*{neighborhood.county}" id="county">
+					    <option th:each="county : ${listCounties}" th:value="${county.id}" th:text="${county.name}"></option>
+                    </select>
+                </div>
+                <!-- NEIGHBORHOOD -->
+                <div class="form-group">
+                    <label>Bairro</label>
+                    <select class="form-control" th:field="*{neighborhood}" id="neighborhood">
+					    <option th:each="neighborhood : ${listNeighborhoods}" th:value="${neighborhood.id}" th:text="${neighborhood.name}"></option>
+                    </select>
+                </div>
+                <!-- BUSINESS -->
+                <div class="form-group">
+                    <label>Negócio</label>
+                    <select class="form-control" th:field="*{business}" id="business">
+                        <option th:each="business : ${allBusiness}" th:value="${business.id}" th:text="${business.name}"></option>
+                    </select>
+                </div>
+                <!-- CATEGORY -->
+                <div class="form-group">
+                    <label>Categoria</label>
+                    <select class="form-control" th:field="*{category}" id="category">
+                        <option th:each="category : ${allCategories}" th:value="${category.id}" th:text="${category.name}"></option>
+                    </select>
+                </div>
+                <!-- ROOM -->
+                <div class="form-group">
+                    <label>Quantidade de quarto</label>
+                    <select class="form-control"th:field="*{room}" id="room">
+                        <option th:each="room : ${allRooms}" th:value="${room.id}" th:text="${room.amount}"></option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">Salvar</button>
+                </div>
+                <div th:replace="GeneralMessageRegister"></div>
+                <div th:replace="ErrorMessageRegister"></div>
+            </form>
+        </div>
+    </div>
+</section>
+</html>

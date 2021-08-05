@@ -1,0 +1,27 @@
+html{
+    scroll-behavior: smooth;
+}
+
+:root{
+    --color-header: #2e3572;
+    --color-sidebar: #202020;
+    --color-sidebar-hover: #3a3a3a;
+    --color-footer: #c5c5c5;
+    --color-primary: #495f8f;
+    --color-primary-hover: #607ab1;
+    --color-secondary: #6e7fa0;
+    --color-secondary-hover: #929fc4;
+    --color-edit: #f4b938;
+    --color-edit-hover: #f7cc55;
+    --color-delete: #f44538;
+    --color-delete-hover: #f76055;
+    --color-black: #181818;
+    --color-white: #f1f1f1;
+}
+
+body, a, input, button{
+    font-size: 1;
+    line-height: 1;
+    font-weight: 400;
+    font-family: 'Roboto', sans-serif;
+}

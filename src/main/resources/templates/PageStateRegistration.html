@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns="www.w3.org/1999/xhtml" 
+      xmlns:th="http://www.thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	  layout:decorate="~{StandardLayout}">
+      
+<section layout:fragment="content">
+    <div class="card">
+        <div class="card-header">
+            <h2>Cadastro de Estado</h2>
+            <a class="btn btn-link" href="/states">Voltar para a pesquisa de Estados</a>
+        </div>
+        <div class="card-body">
+            <form method="POST" action="/states" th:object="${state}">
+                <input type="hidden" th:field="*{id}">
+                <div class="form-group">
+                    <label for="name" class="control-label">Estado</label>
+                    <input type="text" class="form-control" id="name" th:field="*{name}" placeholder="Nome do Estado">
+                </div>
+                <div class="form-group">
+                    <label for="uf" class="control-label">UF</label>
+                    <input type="text" class="form-control" id="uf" th:field="*{uf}" placeholder="Unidade Federativa">
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">Salvar</button>
+                </div>
+                <div th:replace="GeneralMessageRegister"></div>
+                <div th:replace="ErrorMessageRegister"></div>
+            </form>
+        </div>
+    </div>
+</section>
+</html>

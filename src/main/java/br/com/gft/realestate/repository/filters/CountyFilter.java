@@ -1,0 +1,15 @@
+package br.com.gft.realestate.repository.filters;
+
+public class CountyFilter {
+    
+    private String name;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+}

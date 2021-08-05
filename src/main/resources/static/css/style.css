@@ -1,0 +1,117 @@
+/* HEADER ============================= */
+.navbar{
+    background-color: var(--color-header);
+    box-shadow: 2px 2px 5px var(--color-sidebar-hover);
+    padding: 1px;
+}
+
+/* CONTAINER ========================== */
+.container-main{
+    display: flex;
+}
+
+/* SIDEBAR ============================ */
+.sidenav {
+    width: 200px;
+    border: 1px solid #111;
+    box-shadow: 2px 2px 5px var(--color-sidebar-hover);
+    background-color: var(--color-sidebar);
+}
+
+.sidenav a{
+    background-color: var(--color-sidebar);
+    padding: 8px 10px;
+    display: block;
+    border-bottom: 4px solid #111;
+    color: white;
+    display: flex;
+    align-items: center;
+    font-size: 0.9rem;
+}
+
+.sidenav a:hover {
+    text-decoration: none;
+    background-color: var(--color-sidebar-hover);
+    transition: 0.5s;
+}
+
+.sidenav a svg{
+    margin-right: 8px;
+}
+
+/* CONTENT ============================ */
+.content{
+    width: 100%;
+    padding: 10px;
+}
+
+.card{
+    border: 1px solid var(--color-primary);
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.466);
+}
+
+.card-header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #333;
+}
+
+.card-header h2{
+    font-weight: 700;
+    color: var(--color-white);
+}
+
+.container-card-body{
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+}
+
+.container-card-body .card{
+    width: 100%;
+}
+
+.container-card-body .card .card-header{
+    height: 100px;
+    color: white;
+}
+
+.card-deck .card{
+    margin: 15px;   
+}
+
+/* BUTTONS ============================ */
+.btn{
+    background-color: var(--color-secondary);
+    color: var(--color-white);
+}
+
+.btn:hover{
+    background-color: var(--color-secondary-hover);
+    text-decoration: none;
+    color: var(--color-white);
+}
+
+.btn-edit{
+    background-color: var(--color-edit);
+}
+
+.btn-edit:hover{
+    background-color: var(--color-edit-hover);
+}
+
+.btn-delete{
+    background-color: var(--color-delete);
+}
+
+.btn-delete:hover{
+    background-color: var(--color-delete-hover);
+}
+
+thead tr.row{
+    background-color: var(--color-primary);
+    color: var(--color-white)
+}
+
+/**/

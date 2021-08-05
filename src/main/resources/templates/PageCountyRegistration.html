@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns="www.w3.org/1999/xhtml" 
+      xmlns:th="http://www.thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	  layout:decorate="~{StandardLayout}">
+
+<section layout:fragment="content">
+    <div class="card">
+        <div class="card-header">
+            <h2>Cadastro de Municípios</h2>
+            <a class="btn btn-link" href="/counties">Voltar para a pesquisa de Municípios</a>
+        </div>
+        <div class="card-body">
+            <form method="POST" action="/counties" th:object="${county}">
+                <input type="hidden" th:field="*{id}">
+                <div class="form-group">
+                    <label for="name" class="control-label">Município</label>
+                    <input type="text" class="form-control" id="name" th:field="*{name}" placeholder="Nome do Município">
+                </div>
+                <div class="form-group">
+                    <label>Estado</label>
+                    <select class="form-control" name="state" id="state">
+                        <option th:if="${county.state == null}"> -- </option>
+                        <option th:each="state : ${allStates}" th:value="${state.id}" th:text="${state.name}"></option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">Salvar</button>
+                </div>
+                <div th:replace="GeneralMessageRegister"></div>
+                <div th:replace="ErrorMessageRegister"></div>
+            </form>
+        </div>
+    </div>
+</section>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns="www.w3.org/1999/xhtml" 
+      xmlns:th="http://www.thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	  layout:decorate="~{StandardLayout}">
+
+<section layout:fragment="content">
+    <div class="card">
+        <div class="card-header">
+            <h2>Cadastro de quantidade de Quartos</h2>
+            <a class="btn btn-link" href="/rooms">Voltar para a pesquisa de quartos</a>
+        </div>
+        <div class="card-body">
+            <form method="POST" action="/rooms" th:object="${room}">
+                <input type="hidden" th:field="*{id}">
+                <div class="form-group">
+                    <label for="amount" class="control-label">Quantidade</label>
+                    <input type="text" class="form-control" id="amount" th:field="*{amount}" placeholder="Quantidade de quartos">
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">Salvar</button>
+                </div>
+                <div th:replace="GeneralMessageRegister"></div>
+                <div th:replace="ErrorMessageRegister"></div>
+            </form>
+        </div>
+    </div>
+</section>
+</html>

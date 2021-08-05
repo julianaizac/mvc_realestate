@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns="www.w3.org/1999/xhtml" 
+      xmlns:th="http://www.thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	  layout:decorate="~{StandardLayout}">
+
+<section layout:fragment="content">
+    <div class="card">
+        <div class="card-header">
+            <h2>Cadastro de Bairros</h2>
+            <a class="btn btn-link" href="/neighborhoods">Voltar para a pesquisa de Bairros</a>
+        </div>
+        <div class="card-body">
+            <form method="POST" action="/neighborhoods" th:object="${neighborhood}">
+                <input type="hidden" th:field="*{id}">
+                <div class="form-group">
+                    <label for="name" class="control-label">Nome</label>
+                    <input type="text" class="form-control" id="name" th:field="*{name}" placeholder="Nome do Bairro">
+                </div>
+                <div class="form-group">
+                    <label>Estado</label>
+                    <select class="form-control" name="state" id="state">
+                        <option th:if="${neighborhood.county == null}"> -- </option>
+					    <option th:each="state : ${allStates}" th:value="${state.id}" th:text="${state.name}"
+					            th:selected="${neighborhood.county != null && neighborhood.county.state.id == state.id}"></option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Município</label>
+                    <select class="form-control" name="county" id="county">
+                        <option th:if="${neighborhood.county == null}"> -- </option>
+					    <option th:if="${neighborhood.county != null}" 
+                                th:each="county : ${listCounties}" th:value="${county.id}" th:text="${county.name}" 
+                                th:selected="${neighborhood.county.id == county.id}"></option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">Salvar</button>
+                </div>
+                <div th:replace="GeneralMessageRegister"></div>
+                <div th:replace="ErrorMessageRegister"></div>
+            </form>
+        </div>
+    </div>
+</section>
+</html>
